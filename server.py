@@ -9,7 +9,6 @@ app = FastAPI()
 
 NUM_WORKERS = 10
 MODEL_TYPE = "large-v3"
-LANGUAGE_CODE = "en"
 CPU_THREADS = 4
 VAD_FILTER = True
 
@@ -36,7 +35,6 @@ async def parse_body(request: Request):
 
 def execute_blocking_whisper_prediction(model: WhisperModel, audio_data_array: np.ndarray) -> str:
     segments, _ = model.transcribe(audio_data_array,
-                                   language=LANGUAGE_CODE,
                                    beam_size=5,
                                    vad_filter=VAD_FILTER,
                                    vad_parameters=dict(min_silence_duration_ms=1000))
