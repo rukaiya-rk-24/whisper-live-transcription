@@ -8,7 +8,7 @@ from faster_whisper import WhisperModel
 app = FastAPI()
 
 NUM_WORKERS = 10
-MODEL_TYPE = "tiny.en"
+MODEL_TYPE = "large-v3"
 LANGUAGE_CODE = "en"
 CPU_THREADS = 4
 VAD_FILTER = True
